@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Birthday Surprise 🎉</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #ffd6e8;
+    text-align: center;
+}
+
+/* Countdown */
+#countdown {
+    font-size: 80px;
+    margin-top: 40vh;
+    color: #ff4081;
+}
+
+/* Pages */
+.page {
+    display: none;
+    padding: 30px;
+}
+
+.active {
+    display: block;
+}
+
+img {
+    width: 100px;
+    border-radius: 15px;
+    margin: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    background: #ff4081;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Countdown -->
+<div id="countdown">0</div>
+
+<!-- Page 1 -->
+<div class="page" id="page1">
+    <img src="./kitty3.png">
+    <h2>My girl was born 27 years ago today 💖</h2>
+    <button onclick="nextPage(2)">Start Surprise 🎁</button>
+</div>
+
+<!-- Page 2 -->
+<div class="page" id="page2">
+    <h2>🎉 Happy Birthday My Sister 💕</h2>
+    <img src="./kittyimg2.png">
+    <br>
+    <button onclick="nextPage(3)">Next ➡</button>
+</div>
+
+<!-- Page 3 -->
+<div class="page" id="page3">
+    <h2>Some Sweet Moments 💞</h2>
+    <img src="./WhatsApp Image 2026-04-10 at 8.43.18 PM.jpeg">
+    <img src="./WhatsApp Image 2026-04-10 at 8.43.18 PM.jpeg">
+    <br>
+    <button onclick="nextPage(4)">Open Message 💌</button>
+</div>
+
+<!-- Page 4 -->
+<div class="page" id="page4">
+    <h2>A Special Message 💖</h2>
+    <p>
+        Happy Birthday! 🎂<br><br>
+        You deserve all happiness, love, and success 💕<br>
+        Stay amazing always ✨
+    </p>
+</div>
+
+<script>
+let count = 0;
+let countdown = document.getElementById("countdown");
+
+let interval = setInterval(() => {
+    countdown.innerText = count;
+    count++;
+
+    if (count > 3) {
+        clearInterval(interval);
+        countdown.style.display = "none";
+        document.getElementById("page1").classList.add("active");
+    }
+}, 1000);
+
+function nextPage(pageNum) {
+    document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+    document.getElementById("page" + pageNum).classList.add("active");
+}
+</script>
+
+</body>
+</html>
